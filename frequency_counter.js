@@ -7,5 +7,13 @@ function same(a,b){
         return false
     let objA = {}
     let objB = {}
-    
+    for (let value of a){
+        objA[value] = (objA[value] || 0) + 1
+    }
+    for (let val of b){
+        objB[val] = (objB[val] || 0) + 1
+    }
+    for (let key in objA){
+        
+    }
 }
