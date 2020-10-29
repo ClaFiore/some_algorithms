@@ -26,3 +26,6 @@ same([1,2,3], [4,1,9]) //true
 same([2,3,2], [9,4,4]) //true
 same([2,3,2], [9,4]) //false => frequency matters
 same([1,2,5], [4,25,9]) //false
+
+// O(n)
+// 3 for loops are better than a nested loops in terms of big O
