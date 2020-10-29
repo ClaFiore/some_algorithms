@@ -7,6 +7,9 @@
 
 //assumptions: all lowercase letters
 
+
+// first attempt:
+
 function isAnagram(a, b){
     if (a.length !== b.length)
         return false
@@ -23,6 +26,25 @@ function isAnagram(a, b){
             return false
         if (objB[key] !== objA[key])
             return false
+    }
+    return true
+}
+
+
+// shorter and better alternative:
+
+function isAnagram(a, b){
+    if (a.length !== b.length)
+        return false
+    let obj = {}
+    for (let i =0; i < a.length; i ++){
+        obj[a[i]] ? obj[a[i]]++ : obj[a[i]] = 1         // let letter = a[i] for better clarity
+    }
+    for (let i = 0; i < b.length; i++){
+        if (!obj[b[i]]) // this includes case where obj[b[i]] === 0, because 0 it's falsy
+        return false
+        if (obj[b[i]])
+            obj[b[i]]--
     }
     return true
 }
