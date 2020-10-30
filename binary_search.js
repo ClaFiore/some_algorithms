@@ -5,14 +5,16 @@ function binarySearch(arr, searchedVal){
     while (min <= max){
       let middle = Math.floor((min + max) / 2)
       let currentElement = arr[middle]
-      if (arr[middle] < val){
+      if (currentElement < searchedVal){
          min = middle + 1
       }
-      else if (arr[middle] > val){
+      else if (currentElement > searchedVal){
          max = middle - 1
       }
       else {
          return middle
       }
   }
+  return - 1
 }
+
