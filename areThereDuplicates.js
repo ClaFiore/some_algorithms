@@ -16,8 +16,6 @@ function areThereDuplicates() {
      return false
    }
 
-
-
    // second solution
 
    function areThereDuplicates() {
