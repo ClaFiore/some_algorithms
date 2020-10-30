@@ -22,7 +22,7 @@ function countUniqueValues(array){
 }
 
 
-// shorter solution:
+// shorter and better solution:
 
 function countUniqueValues(array){
     if (array.length === 0)
@@ -34,7 +34,7 @@ function countUniqueValues(array){
             array[i] = array[j]
         }
     }
-    return i + 1
+    return i + 1    //i is the index of the last number that is replaced
 }
 
 // This has a performance of O(n) because we are only looping through the array once.
