@@ -23,12 +23,14 @@ function nonDivisibleSubset(k, s) {
     for (let i = 0; i < s.length; i++){
         frequency[s[i]%k] += 1
     }
+    let result = Math.min(frequency[0], 1)
     if (k%2===0){
         frequency[k/2] = Math.min(frequency[k/2], 1)
     }
-    let result = Math.min(frequency[0], 1)
+    
     for (let i = 1; i<= k/2; i++){
-        result += Math.max(frequency[i], frequency[k-1])
+        if (i !== k - i)           // Avoid over-counting when k is even
+            result += Math.max(frequency[i], frequency[k-i]) 
     }
     return result
 }
