@@ -12,14 +12,23 @@
 // in both case max length of subarray is 3
 // function should return 3
 
-function nonDivisibleSubset(k, s) {
-    let i = 0
-    let j = 1
-    let sum = 0
-    while (i < s.length && j < s.length){
-        sum = s[i] + s[j]
-        if (sum % k === 0){
-        }
-    }
+s = [1, 7, 2, 4]
+k = 3
 
+function nonDivisibleSubset(k, s) {
+    let frequency = []
+    for (let i = 1; i < s.length; i++){         //fill frequency array of zeros
+        frequency = [...frequency, 0]           //frequency.length === k
+    }
+    for (let i = 0; i < s.length; i++){
+        frequency[s[i]%k] += 1
+    }
+    if (k%2===0){
+        frequency[k/2] = Math.min(frequency[k/2], 1)
+    }
+    let result = Math.min(frequency[0], 1)
+    for (let i = 1; i<= k/2; i++){
+        result += Math.max(frequency[i], frequency[k-1])
+    }
+    return result
 }
