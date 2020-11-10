@@ -16,14 +16,17 @@ s = [1, 7, 2, 4]
 k = 3
 
 function nonDivisibleSubset(k, s) {
-    let frequency = []
-    for (let i = 1; i < s.length; i++){         //fill frequency array of zeros
+    let frequency = []  // [0, 3, 1]
+    for (let i = 1; i < k; i++){         //fill frequency array of zeros
         frequency = [...frequency, 0]           //frequency.length === k
     }
     for (let i = 0; i < s.length; i++){
-        frequency[s[i]%k] += 1
+        frequency[s[i]%k] += 1    // frequency[1]  += 1
     }
-    let result = Math.min(frequency[0], 1)
+
+    // [0, 3, 1]
+
+    let result = Math.min(frequency[0], 1)  //0
     if (k%2===0){
         frequency[k/2] = Math.min(frequency[k/2], 1)
     }
